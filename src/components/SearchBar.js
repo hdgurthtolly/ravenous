@@ -1,14 +1,22 @@
 import React from 'react';
 import './SearchBar.css';
 
+const sortingOptions = {
+  'Best Match': 'best_match',
+  'Highest Rated': 'rating',
+  'Most Reviewed': 'review_count'
+};
+
 function SearchBar() {
   return (
     <div className="SearchBar">
       <div className="SearchOptions">
         <div className="SortOptions">
-          <button className="SortOption">Best Match</button>
-          <button className="SortOption">Highest Rated</button>
-          <button className="SortOption">Most Reviewed</button>
+          {Object.keys(sortingOptions).map(optionName => (
+            <button key={optionName} className="SortOption">
+              {optionName}
+            </button>
+          ))}
         </div>
       </div>
       <div className="SearchFields">
